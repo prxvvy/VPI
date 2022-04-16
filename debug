@@ -1,0 +1,3 @@
+#!/bin/sh
+
+./build && valgrind --leak-check=full -s cmake-build-debug/plugins-installer
