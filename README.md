@@ -19,6 +19,12 @@ PS: In case you don't know suckless style, you gotta edit the [config.h](https:/
 
 # Usage
 
+First off, clone this repo if haven't yet.
+
+```shell
+$ git clone https://github.com/prxvvy/VPI.git
+```
+
 There's some shell scripts you can use to build & run the binary. That's the good part, no need to build it with sudo.
 
 **building**
