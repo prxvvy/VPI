@@ -55,7 +55,7 @@ This will build, run the binary with valgrind to check possibly memory leaks and
 
 Feel free to open an issue.
 
-# Contributing?
+# Contributing
 
 There's a TODO list file you can help with.
 
