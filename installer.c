@@ -20,6 +20,7 @@ int destroy_plugin(plugin_t *p_plugin);
 int destroy_nested_lists(list_t *p_parent_list);
 int destroy_plugins(list_t *p_plugins_list);
 int install_plugins();
+int install_plugin(plugin_t *p_plugin, char *p_cmd);
 char *__str_plugin__(plugin_t *p_plugin);
 char *assemble_path_installation(plugin_t *p_plugin);
 char *git_installation_cmd(char *p_path, char *p_githubURL, int b_special);
@@ -42,8 +43,8 @@ list_t *parse_plugins_from_arr() {
   list_t *p_plugins_list = create_list();
   char *p_token;
   for (int i = 0; i < arrpluginslen; ++i) {
-    char *p_plugin = calloc(strlen(plugins[0]) + 1, sizeof(char));
-    strcpy(p_plugin, plugins[0]);
+    char *p_plugin = calloc(strlen(plugins[i]) + 1, sizeof(char));
+    strcpy(p_plugin, plugins[i]);
     list_t *p_plugin_components = create_list();
     insert_at_end(p_plugins_list, p_plugin_components, 0);
     p_token = strtok(p_plugin, separator);
@@ -205,10 +206,19 @@ int init_start_dirs() {
   return 1;
 }
 
+int install_plugin(plugin_t *p_plugin, char *p_cmd) {
+  printf("Adding plugin %s to %s category...\n", p_plugin->p_name,
+         p_plugin->p_category);
+  system(p_cmd);
+  printf("Added plugin %s to %s category...\n", p_plugin->p_name,
+         p_plugin->p_category);
+  return 1;
+}
+
 int install_plugins() {
-  init_start_dirs();
   list_t *p_plugins = assemble_plugins(parse_plugins_from_arr());
   for (unsigned int i = 0; i < get_len(p_plugins); ++i) {
+    plugin_t *p_plugin = get_node_at(p_plugins, i)->p_value;
     char *p_plugin_name =
         ((plugin_t *)get_node_at(p_plugins, i)->p_value)->p_name;
     char *p_plugin_category =
@@ -217,34 +227,22 @@ int install_plugins() {
         __str_plugin__((plugin_t *)get_node_at(p_plugins, i)->p_value);
     char *p_path =
         assemble_path_installation(get_node_at(p_plugins, i)->p_value);
+
     if (is_equal_to(p_plugin_name, "coc.nvim") == 1) {
       char *p_git_clone = git_installation_cmd(p_path, p_gitRepoURL, 1);
-      printf("Adding special plugin \"%s\" to %s category directory...\n",
-             p_plugin_name, p_plugin_category);
-      system(p_git_clone);
-      printf("Added special plugin \"%s\" to %s category directory.\n",
-             p_plugin_name, p_plugin_category);
-
+      install_plugin(p_plugin, p_git_clone);
       free(p_git_clone);
     }
 
     if (is_equal_to(p_plugin_category, "ide") == 1) {
       char *p_git_clone = git_installation_cmd(p_path, p_gitRepoURL, 0);
-      printf("Adding plugin \"%s\" to %s category directory...\n",
-             p_plugin_name, p_plugin_category);
-      system(p_git_clone);
-      printf("Added plugin \"%s\" to %s category directory.\n", p_plugin_name,
-             p_plugin_category);
 
+      install_plugin(p_plugin, p_git_clone);
       free(p_git_clone);
     } else if (is_equal_to(p_plugin_category, "appearance") == 1) {
       char *p_git_clone = git_installation_cmd(p_path, p_gitRepoURL, 0);
-      printf("Adding plugin \"%s\" to %s category directory...\n",
-             p_plugin_name, p_plugin_category);
-      system(p_git_clone);
-      printf("Added plugin \"%s\" to %s category directory.\n", p_plugin_name,
-             p_plugin_category);
 
+      install_plugin(p_plugin, p_git_clone);
       free(p_git_clone);
 
     } else {
@@ -254,13 +252,13 @@ int install_plugins() {
     free(p_path);
     free(p_gitRepoURL);
   }
-
   destroy_plugins(p_plugins);
 
   return 1;
 }
 
 int main() {
+  init_start_dirs();
   install_plugins();
   return 0;
 }

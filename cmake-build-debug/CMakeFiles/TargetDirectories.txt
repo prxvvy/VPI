@@ -1,0 +1,3 @@
+/home/prxvvy/workspace/VPI/cmake-build-debug/CMakeFiles/plugins-installer.dir
+/home/prxvvy/workspace/VPI/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/prxvvy/workspace/VPI/cmake-build-debug/CMakeFiles/rebuild_cache.dir

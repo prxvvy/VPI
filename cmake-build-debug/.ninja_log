@@ -1,0 +1,6 @@
+# ninja log v5
+48	67	1650172232401760178	plugins-installer	8544c79156c7e0f1
+0	48	1650172232381760175	CMakeFiles/plugins-installer.dir/installer.c.o	52816419ed7d26f
+1	28	1650171485204552865	CMakeFiles/plugins-installer.dir/list.c.o	d84865e6bc60a12d
+1	27	1650171485204552865	CMakeFiles/plugins-installer.dir/util.c.o	1f6fbc1a56b210c
+1	23	1650171485197886187	CMakeFiles/plugins-installer.dir/node.c.o	d5056c512d4502ad

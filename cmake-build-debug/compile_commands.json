@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/prxvvy/workspace/VPI/cmake-build-debug",
+  "command": "/usr/bin/cc -g -g -Wall -lm -ldl -fPIC -rdynamic -std=gnu2x -o CMakeFiles/plugins-installer.dir/installer.c.o -c /home/prxvvy/workspace/VPI/installer.c",
+  "file": "/home/prxvvy/workspace/VPI/installer.c"
+},
+{
+  "directory": "/home/prxvvy/workspace/VPI/cmake-build-debug",
+  "command": "/usr/bin/cc -g -g -Wall -lm -ldl -fPIC -rdynamic -std=gnu2x -o CMakeFiles/plugins-installer.dir/list.c.o -c /home/prxvvy/workspace/VPI/list.c",
+  "file": "/home/prxvvy/workspace/VPI/list.c"
+},
+{
+  "directory": "/home/prxvvy/workspace/VPI/cmake-build-debug",
+  "command": "/usr/bin/cc -g -g -Wall -lm -ldl -fPIC -rdynamic -std=gnu2x -o CMakeFiles/plugins-installer.dir/node.c.o -c /home/prxvvy/workspace/VPI/node.c",
+  "file": "/home/prxvvy/workspace/VPI/node.c"
+},
+{
+  "directory": "/home/prxvvy/workspace/VPI/cmake-build-debug",
+  "command": "/usr/bin/cc -g -g -Wall -lm -ldl -fPIC -rdynamic -std=gnu2x -o CMakeFiles/plugins-installer.dir/util.c.o -c /home/prxvvy/workspace/VPI/util.c",
+  "file": "/home/prxvvy/workspace/VPI/util.c"
+}
+]
