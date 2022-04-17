@@ -1,2 +1,2 @@
-*.cmake linguist-language=C
+CMakeLists.txt linguist-language=C
 *.sh linguist-language=C
