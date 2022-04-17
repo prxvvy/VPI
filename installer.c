@@ -233,22 +233,11 @@ int install_plugins() {
       install_plugin(p_plugin, p_git_clone);
       free(p_git_clone);
     }
+    char *p_git_clone = git_installation_cmd(p_path, p_gitRepoURL, 0);
 
-    if (is_equal_to(p_plugin_category, "ide") == 1) {
-      char *p_git_clone = git_installation_cmd(p_path, p_gitRepoURL, 0);
+    install_plugin(p_plugin, p_git_clone);
+    free(p_git_clone);
 
-      install_plugin(p_plugin, p_git_clone);
-      free(p_git_clone);
-    } else if (is_equal_to(p_plugin_category, "appearance") == 1) {
-      char *p_git_clone = git_installation_cmd(p_path, p_gitRepoURL, 0);
-
-      install_plugin(p_plugin, p_git_clone);
-      free(p_git_clone);
-
-    } else {
-      printf("Didn't install because of invalid category.\n");
-      exit(0);
-    }
     free(p_path);
     free(p_gitRepoURL);
   }
